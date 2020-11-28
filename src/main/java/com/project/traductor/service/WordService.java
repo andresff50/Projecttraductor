@@ -29,7 +29,6 @@ public class WordService {
         return iWordRepository.save(word);
     }
 
-
     public void deleteWord(Long id) {
         iWordRepository.deleteById(id);
     }

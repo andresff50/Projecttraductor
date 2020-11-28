@@ -25,10 +25,14 @@ public class Word {
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JsonIgnoreProperties("words")
-    @JoinTable(name = "translate",
+    @JoinTable(name = "translate_word",
             joinColumns = {@JoinColumn(name = "id_key")},
             inverseJoinColumns = @JoinColumn(name = "id_value"))
     private Set<Word> words = new HashSet<>();
+
+    @ManyToOne
+    @JoinColumn(name = "id_language")
+    private Language language_code;
 
     public Word() {
     }
